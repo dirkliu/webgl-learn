@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebGL: 清除图像</title>
+    <style>
+      #webgl {
+        width: 500px;
+        height: 500px;
+        background-color: #f00;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="webgl">你的浏览器似乎不支持或者禁用了 HTML5 <code>&lt;canvas&gt;</code> 元素。</canvas>
+    <script>
+      function main() {
+        const canvas = document.getElementById('webgl')
+        const gl = canvas.getContext('webgl')
+
+        if(!gl) {
+          alert('不支持webGL')
+          return
+        }
+        // 使用完全不透明的黑色清除所有图像
+        gl.clearColor(0.0, 0.0, 0.0, 1.0)
+        // 用上面指定的颜色清除缓冲区
+        gl.clear(gl.COLOR_BUFFER_BIT)
+      }
+      main()
+    </script>
+  </body>
+</html>
