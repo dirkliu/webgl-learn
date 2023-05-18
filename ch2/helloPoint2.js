@@ -1,8 +1,9 @@
 const VSHADER_SOURCE = `
   attribute vec4 a_Position;
+  attribute float a_PointSize;
   void main() {
     gl_Position = a_Position;
-    gl_PointSize = 10.0;
+    gl_PointSize = a_PointSize;
   }
 `
 
@@ -32,7 +33,9 @@ function main() {
     return 
   }
 
+  var a_PointSize = gl.getAttribLocation(gl.program, 'a_PointSize');
   gl.vertexAttrib3f(a_Position, 0.5, 0.5, 0.0);
+  gl.vertexAttrib1f(a_PointSize, 20.0)
 
   // 设置canvas背景色
   gl.clearColor(0.0, 0.0, 1.0, 1.0)
