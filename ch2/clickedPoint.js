@@ -51,6 +51,8 @@ function click(ev, gl, canvas, a_Position){
   gl_points.push(y);
   gl.clear(gl.COLOR_BUFFEER_BIT)
 
+  console.log('gl_points:', gl_points)
+
   var len = gl_points.length;
   for(var i = 0; i < len; i += 2) {
     gl.vertexAttrib3f(a_Position, gl_points[i], gl_points[i + 1], 0.0);
